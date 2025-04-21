@@ -76,7 +76,6 @@ int main() {
     printf("nc5=%lg nl5=%lg r5=%lg\n", nc5, nl5, fabs(nl5 - nc5));
 
     return 0;
-}"nc5=%lg nl5=%lg r5=%lg\n",nc5,nl5,r5);
 }
 	
 
