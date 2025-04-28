@@ -1,43 +1,34 @@
 #include <stdio.h>
 #include <math.h>
-double f1(double x){
- return 1.0;
-}
-double f2(double x){
- return x;
-}
-double f3(double x){
- return x*x;
-}
-double f4(double x){
- return x*x*x;
-}
-double f5(double x){
- return x*x*x*x;
+
+double f1(double x) {
+    return sin(x);
 }
 
-double nf1(double x){
- return x;
+double f2(double x) {
+    return 1.0 / x;
 }
-double nf2(double x){
- return x*x/2;
+
+double f3(double x) {
+    return 10.0 / (1.0 + 25.0 * x * x);
 }
-double nf3(double x){
- return x*x*x/3;
+
+double F1(double x) {
+    return -cos(x);
 }
-double nf4(double x){
- return x*x*x*x/4;
+
+double F2(double x) {
+    return log(fabs(x));
 }
-double nf5(double x){
- return x*x*x*x*x/5;}
+
+double F3(double x) {
+    return 2.0 * atan(5.0 * x);
+}
+
 double Newton_Cotes(double a, double b, double (*f)(double)) {
-	    double h = (b - a) / 3.0; 
-	    
-    double x1 = a + h;   //╨┐╨╛ ╤Д╨╛╤А╨╝╤Г╨╗╨╡ 3f((2a+b)/3) =>a+h=a+(b-a)/3=(3a+b-a)/3=(2a+b)/3   double x2 = (2a+b)/3
-    
-    
-    double x2 = a + 2*h;   //╨┐╨╛ ╤Д╨╛╤А╨╝╤Г╨╗╨╡ 3f((a+2b)/3) => a+2h=a+(2b-2a)/3=(3a+2b-2a)/3=(a+2b)/3 ╨╝╨╛╨╢╨╜╨╛ ╨╖╨░╨┐╨╕╤Б╨░╤В╤М   double x2 = (a+2b)/3
-
+    double h = (b - a) / 3.0;
+    double x1 = a + h;
+    double x2 = a + 2*h;
     return (b - a) / 8.0 * (f(a) + 3*f(x1) + 3*f(x2) + f(b));
 }
 
@@ -53,47 +44,32 @@ double sostav_kvadr(double a, double b, int n, double (*f)(double)) {
 }
 
 int main() {
+    int n;
     double a, b;
-    int n = 100; 
+
+    printf("Введите количество разбиений : ");
+    scanf("%d", &n);
+
+    printf("Введите границы отрезка a и b: ");
     scanf("%lf %lf", &a, &b);
 
-    double nc1 = sostav_kvadr(a, b, n, f1);
-    double nc2 = sostav_kvadr(a, b, n, f2);
-    double nc3 = sostav_kvadr(a, b, n, f3);
-    double nc4 = sostav_kvadr(a, b, n, f4);
-    double nc5 = sostav_kvadr(a, b, n, f5);
+    double r1 = sostav_kvadr(a, b, n, f1);
+    double g1 = F1(b) - F1(a);
+    double abs_pogr1 = fabs(g1 - r1);
+    double otn_pogr1 = abs_pogr1 / fabs(g1);
+    printf("\nf(x) = sin(x)\nабс.погр = %lg\nПогрешность (отнс.погр) = %lg\n", abs_pogr1, otn_pogr1);
 
-    double nl1 = nf1(b) - nf1(a);
-    double nl2 = nf2(b) - nf2(a);
-    double nl3 = nf3(b) - nf3(a);
-    double nl4 = nf4(b) - nf4(a);
-    double nl5 = nf5(b) - nf5(a);
+    double r2 = sostav_kvadr(a, b, n, f2);
+    double g2 = F2(b) - F2(a);
+    double abs_pogr2 = fabs(g2 - r2);
+    double otn_pogr2 = abs_pogr2 / fabs(g2);
+    printf("\nf(x) = 1/x\nабс.погр = %lg\nотнс.погр = %lg\n", abs_pogr2, otn_pogr2);
 
-    printf("nc1=%lg nl1=%lg r1=%lg\n", nc1, nl1, fabs(nl1 - nc1));
-    printf("nc2=%lg nl2=%lg r2=%lg\n", nc2, nl2, fabs(nl2 - nc2));
-    printf("nc3=%lg nl3=%lg r3=%lg\n", nc3, nl3, fabs(nl3 - nc3));
-    printf("nc4=%lg nl4=%lg r4=%lg\n", nc4, nl4, fabs(nl4 - nc4));
-    printf("nc5=%lg nl5=%lg r5=%lg\n", nc5, nl5, fabs(nl5 - nc5));
+    double r3 = sostav_kvadr(a, b, n, f3);
+    double g3 = F3(b) - F3(a);
+    double abs_pogr3 = fabs(g3 - r3);
+    double otn_pogr3 = abs_pogr3 / fabs(g3);
+    printf("\nf(x) = 10/(1+25x^2)\nабс.погр = %lg\nотнс.погр = %lg\n", abs_pogr3, otn_pogr3);
 
     return 0;
 }
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
