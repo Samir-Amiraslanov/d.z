@@ -33,7 +33,7 @@ double Newton_Cotes(double a, double b, double (*f)(double)) {
 }
 
 double sostav_kvadr(double a, double b, int n, double (*f)(double)) {
-    double h = (b - a) / n;
+    double h = (b - a) / (n-1);
     double result = 0.0;
     for (int i = 0; i < n; i++) {
         double x0 = a + i * h;
@@ -47,29 +47,29 @@ int main() {
     int n;
     double a, b;
 
-    printf("‚¢¥¤¨â¥ ª®«¨ç¥áâ¢® à §¡¨¥­¨© : ");
+    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â¢® à §ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ");
     scanf("%d", &n);
 
-    printf("‚¢¥¤¨â¥ £à ­¨æë ®âà¥§ª  a ¨ b: ");
+    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½à ­ï¿½ï¿½ï¿½ ï¿½ï¿½à¥§ï¿½ï¿½ a ï¿½ b: ");
     scanf("%lf %lf", &a, &b);
 
     double r1 = sostav_kvadr(a, b, n, f1);
     double g1 = F1(b) - F1(a);
     double abs_pogr1 = fabs(g1 - r1);
     double otn_pogr1 = abs_pogr1 / fabs(g1);
-    printf("\nf(x) = sin(x)\n ¡á.¯®£à = %lg\n®£à¥è­®áâì (®â­á.¯®£à) = %lg\n", abs_pogr1, otn_pogr1);
+    printf("\nf(x) = sin(x)\n  Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚ÑƒÑ‚1=%lg\nÑ€ÐµÐ·ÑƒÐ»ÑŒÑ‚ÑƒÑ‚2=%lg\nÐ°Ð±Ñ.Ð¿Ð¾Ð³Ñ€ = %lg\nÐ¾Ñ‚Ð½Ð¾Ñ.Ð¿Ð¾Ð³Ñ€ = %lg\n",g1,r1, abs_pogr1, otn_pogr1);
 
     double r2 = sostav_kvadr(a, b, n, f2);
     double g2 = F2(b) - F2(a);
     double abs_pogr2 = fabs(g2 - r2);
     double otn_pogr2 = abs_pogr2 / fabs(g2);
-    printf("\nf(x) = 1/x\n ¡á.¯®£à = %lg\n®â­á.¯®£à = %lg\n", abs_pogr2, otn_pogr2);
+    printf("\nf(x) = 1/x\n Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚ÑƒÑ‚1=%lg\nÑ€ÐµÐ·ÑƒÐ»ÑŒÑ‚ÑƒÑ‚2=%lg\nÐ°Ð±Ñ.Ð¿Ð¾Ð³Ñ€ = %lg\nÐ¾Ñ‚Ð½Ð¾Ñ.Ð¿Ð¾Ð³Ñ€ = %lg\n",g2,r2, abs_pogr2, otn_pogr2);
 
     double r3 = sostav_kvadr(a, b, n, f3);
     double g3 = F3(b) - F3(a);
     double abs_pogr3 = fabs(g3 - r3);
     double otn_pogr3 = abs_pogr3 / fabs(g3);
-    printf("\nf(x) = 10/(1+25x^2)\n ¡á.¯®£à = %lg\n®â­á.¯®£à = %lg\n", abs_pogr3, otn_pogr3);
+    printf("\nf(x) = 10/(1+25x^2)\nÐ° Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚ÑƒÑ‚1=%lg\nÑ€ÐµÐ·ÑƒÐ»ÑŒÑ‚ÑƒÑ‚2=%lg\nÐ°Ð±Ñ.Ð¿Ð¾Ð³Ñ€ = %lg\nÐ¾Ñ‚Ð½Ð¾Ñ.Ð¿Ð¾Ð³Ñ€ = %lg\n",g3,r3, abs_pogr3, otn_pogr3);
 
     return 0;
 }
