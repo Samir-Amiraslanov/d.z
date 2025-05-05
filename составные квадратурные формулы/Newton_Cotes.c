@@ -47,29 +47,29 @@ int main() {
     int n;
     double a, b;
 
-    printf("Ç¢•§®‚• ™Æ´®Á•·‚¢Æ ‡†ß°®•≠®© : ");
+    printf("–í–≤–µ–¥–∏—Ç–µ –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ —Ä–∞–∑–±–∏–µ–Ω–∏–π : ");
     scanf("%d", &n);
 
-    printf("Ç¢•§®‚• £‡†≠®ÊÎ Æ‚‡•ß™† a ® b: ");
+    printf("–í–≤–µ–¥–∏—Ç–µ –≥—Ä–∞–Ω–∏—Ü—ã –æ—Ç—Ä–µ–∑–∫–∞ a –∏ b: ");
     scanf("%lf %lf", &a, &b);
 
     double r1 = sostav_kvadr(a, b, n, f1);
     double g1 = F1(b) - F1(a);
     double abs_pogr1 = fabs(g1 - r1);
     double otn_pogr1 = abs_pogr1 / fabs(g1);
-    printf("\nf(x) = sin(x)\n†°·.ØÆ£‡ = %lg\nèÆ£‡•Ë≠Æ·‚Ï (Æ‚≠·.ØÆ£‡) = %lg\n", abs_pogr1, otn_pogr1);
+    printf("\nf(x) = sin(x)\n–†–µ–∑—É–ª—å—Ç–∞—Ç = %lg\n–∞–±—Å.–ø–æ–≥—Ä = %lg\n–æ—Ç–Ω—Å.–ø–æ–≥—Ä = %lg\n", r1, abs_pogr1, otn_pogr1);
 
     double r2 = sostav_kvadr(a, b, n, f2);
     double g2 = F2(b) - F2(a);
     double abs_pogr2 = fabs(g2 - r2);
     double otn_pogr2 = abs_pogr2 / fabs(g2);
-    printf("\nf(x) = 1/x\n†°·.ØÆ£‡ = %lg\nÆ‚≠·.ØÆ£‡ = %lg\n", abs_pogr2, otn_pogr2);
+    printf("\nf(x) = 1/x\n–†–µ–∑—É–ª—å—Ç–∞—Ç = %lg\n–∞–±—Å.–ø–æ–≥—Ä= %lg\n–æ—Ç–Ω—Å.–ø–æ–≥—Ä = %lg\n", r2, abs_pogr2, otn_pogr2);
 
     double r3 = sostav_kvadr(a, b, n, f3);
     double g3 = F3(b) - F3(a);
     double abs_pogr3 = fabs(g3 - r3);
     double otn_pogr3 = abs_pogr3 / fabs(g3);
-    printf("\nf(x) = 10/(1+25x^2)\n†°·.ØÆ£‡ = %lg\nÆ‚≠·.ØÆ£‡ = %lg\n", abs_pogr3, otn_pogr3);
+    printf("\nf(x) = 10/(1+25x^2)\n–†–µ–∑—É–ª—å—Ç–∞—Ç = %lg\n–∞–±—Å.–ø–æ–≥—Ä = %lg\n–æ—Ç–Ω—Å.–ø–æ–≥—Ä = %lg\n", r3, abs_pogr3, otn_pogr3);
 
     return 0;
 }
