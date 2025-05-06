@@ -6,7 +6,8 @@ int main() {
     printf("Введите размер матрицы: ");
     scanf("%d", &n);
     double *a = (double *)malloc(n * n * sizeof(double));
-    
+    double *obr = (double *)malloc(n * n * sizeof(double));
+    double *r = (double *)malloc(n * n * sizeof(double));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             int maxij;
@@ -28,13 +29,13 @@ int main() {
   for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (i == 0 && j == 0) {
-                a[i * n + j] = 1;
+                obr[i * n + j] = 1;
             } else if (i == j) {
-                a[i * n + j] = 2;
+                obr[i * n + j] = 2;
             } else if (abs(i - j) == 1) {
-                a[i * n + j] = -1;
+                obr[i * n + j] = -1;
             } else {
-                a[i * n + j] = 0;
+                obr[i * n + j] = 0;
             }
         }
     }
@@ -42,7 +43,25 @@ int main() {
        printf("\nОбратная матрица:\n");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            printf("[%lg] ", a[i * n + j]);
+            printf("[%lg] ", obr[i * n + j]);
+        }
+        printf("\n");
+    }
+    
+    
+      for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            r[i * n + j] = 0;
+            for (int k = 0; k < n; k++) {
+                r[i * n + j] += a[i * n + k] * obr[k * n + j];
+            }
+        }
+    }
+
+    printf("\nРезультат перемножения (a * obr):\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("[%lg] ", r[i * n + j]);
         }
         printf("\n");
     }
