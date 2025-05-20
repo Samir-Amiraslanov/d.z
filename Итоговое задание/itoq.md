@@ -20,5 +20,5 @@ $\int_{0}^{x} \frac {\cos(t)}{\sqrt{1-t^2}}dt=\int_{0}^{\arcsin(x)} \frac {\cos(
 
 Тогда:
 
-$\int_{0}^{1} \frac {\cos(t)}{\sqrt{1-t^2}}dt=\int_{0}^  {\pi/2}  {\cos(\sin(\varphi))}d\varphi.$
+$2\int_{0}^{1} \frac {\cos(t)}{\sqrt{1-t^2}}dt=\int_{0}^  {\pi/2}  {\cos(\sin(\varphi))}d\varphi=\alpha$ 
 
