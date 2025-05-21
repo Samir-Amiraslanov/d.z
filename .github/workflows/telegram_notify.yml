@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get changed files
+        id: files
+        run: |
+          FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | paste -sd "," -)
+          echo "::set-output name=changed_files::$FILES"
+
+      - name: Send Telegram message
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d text="В репозитории ${{ github.repository }} сделан коммит."
