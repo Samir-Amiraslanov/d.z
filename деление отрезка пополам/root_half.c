@@ -58,7 +58,7 @@ int root_half(double *x, double a, double b,
         }
 
         
-        if (fabs(b - a) < epsilon || fabs(b - a) / 2 < epsilon) {
+        if (fabs(b - a) < epsilon || fabs(b - a) < epsilon * (a+b)/2) {
             *x = c;
             return k;
         }
