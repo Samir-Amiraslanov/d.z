@@ -21,11 +21,12 @@ int main (int argc, char* argv[]){
     int a;
     double b;
 
-    while (fin >> fam >> imya >> otch >> a >> b) {
-        fout << fam << " " << imya << " " << otch << " " << a << " " << b << "\n";
-    }
-		if(fin.eof()){cout<<"файл достиг конца  22"<<endl;}
-		else {cout<<"произошла ошибка при чтение файла  00"<<endl;}
+		if(fin>>fam>>imya>>otch>>a>>b)
+		{		
+			f<<fam<<" "<<imya<<" "<<otch<<" "<<a<<" "<<b<<"\n" ;
+			}
+		else {cout<<"произошла ошибка при чтение файла  "<<endl;}
+
     return 0;
 }
 	
