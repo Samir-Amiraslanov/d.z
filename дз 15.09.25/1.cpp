@@ -21,6 +21,8 @@ int main (){
 		{		
 			f<<fam<<" "<<imya<<" "<<otch<<" "<<a<<" "<<b<<"\n" ;
 			}
-		
+if(fin.eof()){cout<<"файл достиг конца  22"<<endl;}
+		else {cout<<"произошла ошибка при чтение файла  "<<endl;}
+
 			return 0;
 	}
