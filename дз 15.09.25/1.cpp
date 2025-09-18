@@ -19,9 +19,14 @@ int main (){
 		
 		if(fin>>fam>>imya>>otch>>a>>b)
 		{		
-			f<<fam<<" "<<imya<<" "<<otch<<" "<<a<<" "<<b<<"\n" ;
-			}
-		else {cout<<"произошла ошибка при чтение файла  "<<endl;}
+			 char c;
+        if (fin >> c) {
+            cout << "файл некорректен" << endl;}
+             else if (!fin.eof()) {
+            cout << "файл некорректен" << endl;} 
+			else {f<<fam<<" "<<imya<<" "<<otch<<" "<<a<<" "<<b<<"\n" ;
+			}}
+		else {cout<<"произошла ошибка при чтение файла"<<endl;}
 
 			return 0;
 	}
