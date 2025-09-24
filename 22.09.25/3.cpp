@@ -4,7 +4,7 @@ using namespace std;
 int* b;
 public :
 myclass(int c){
-	b=new int(c);
+	b=new int[c];
 	cout<<c<<endl;
 }
 /*  ~myclass(){
