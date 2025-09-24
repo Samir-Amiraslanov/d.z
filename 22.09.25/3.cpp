@@ -7,8 +7,8 @@ myclass(int c){
 	b=new int(c);
 	cout<<c<<endl;
 }
-  ~myclass(){
-   delete b;}
+/*  ~myclass(){
+   delete b;}*/
  };
 int main(){
 int i;
